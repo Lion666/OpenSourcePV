@@ -2,7 +2,7 @@
 % Please edit documentation in R/TTOSD_function.R
 \name{TTOSD_function}
 \alias{TTOSD_function}
-\title{Title}
+\title{Run TTO Signal detection}
 \usage{
 TTOSD_function(
   dataset,
@@ -15,11 +15,13 @@ TTOSD_function(
 )
 }
 \arguments{
+\item{dataset}{Input dataset}
+
 \item{min}{}
 }
 \value{
 
 }
 \description{
-Title
+Run TTO Signal detection
 }

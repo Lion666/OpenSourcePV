@@ -1,6 +1,6 @@
-#' Title
+#' Run TTO Signal detection
 #'
-#' @param dataset
+#' @param dataset Input dataset
 #' @param Product_var
 #' @param Product_val
 #' @param Event_var
