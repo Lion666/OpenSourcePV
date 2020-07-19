@@ -15,8 +15,6 @@ TTOSD_function(
 )
 }
 \arguments{
-\item{dataset}{Input dataset}
-
 \item{min}{}
 }
 \value{
