@@ -15,7 +15,19 @@ TTOSD_function(
 )
 }
 \arguments{
-\item{min}{}
+\item{dataset}{Input dataset containing at least a column for the product, a column for the event and a column for the TTO (in days)}
+
+\item{Product_var}{Name of the field containing the Product identifier}
+
+\item{Product_val}{List of products for which the TTO Signal detection will run (e.g. c("ZOSTER (SHINGRIX)","ZOSTER (ZOSTAVAX)"))}
+
+\item{Event_var}{Name of the field containing the Event identifier}
+
+\item{TTO_var}{Name of the field containing the TTO information (in days). Needs to be numeric}
+
+\item{interval}{Length (in days) of the interval for the TTO Signal detection}
+
+\item{min}{Minimal number of rows with non-missing TTO information in the user-defined interval for performing TTO Signal Detection}
 }
 \value{
 

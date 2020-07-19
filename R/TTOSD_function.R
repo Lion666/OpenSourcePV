@@ -1,12 +1,12 @@
 #' Run TTO Signal detection
 #'
-#' @param dataset
-#' @param Product_var
-#' @param Product_val
-#' @param Event_var
-#' @param TTO_var
-#' @param interval
-#' @param min
+#' @param dataset Input dataset containing at least a column for the product, a column for the event and a column for the TTO (in days)
+#' @param Product_var Name of the field containing the Product identifier
+#' @param Product_val List of products for which the TTO Signal detection will run (e.g. c("ZOSTER (SHINGRIX)","ZOSTER (ZOSTAVAX)"))
+#' @param Event_var Name of the field containing the Event identifier
+#' @param TTO_var Name of the field containing the TTO information (in days). Needs to be numeric
+#' @param interval Length (in days) of the interval for the TTO Signal detection
+#' @param min Minimal number of rows with non-missing TTO information in the user-defined interval for performing TTO Signal Detection
 #'
 #' @return
 #' @export
