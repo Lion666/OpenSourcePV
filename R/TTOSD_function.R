@@ -40,7 +40,7 @@ TTOSD_function<-function(dataset,
               FROM vaers_TTOSD
               WHERE (var1 == "',Product_val[j],'")
               GROUP BY var2
-              HAVING count(*) >= ',interval, sep="")
+              HAVING count(*) >= ',min, sep="")
     LstEv <- sqldf(str)
 
     LstEv2 = as.character(LstEv[,1])
