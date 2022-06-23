@@ -19,14 +19,19 @@ TTOSD_function<-function(dataset,
                          Product_var,
                          Product_val,
                          Event_var,
+                         Case_var,
                          TTO_var,
                          interval,
                          min){
 
   library(sqldf)
+  library(dplyr)
 
-  vaers_TTOSD<-dataset[dataset[TTO_var]>=0 &
-                       dataset[TTO_var]<=interval,]
+  # Select distinct combinations within the interval defined (only distinct combinations of Product-Event-Case-TTO
+  # will be kept for the analysis of TTO.
+
+  vaers_TTOSD<-distinct(dataset[dataset[TTO_var]>=0 & dataset[TTO_var]<=interval,
+                                c(Product_var,Event_var,Case_var,TTO_var)])
 
   # Rename the variables so that I can reuse the code - Should add check to make sure the new names do not exist
   colnames(vaers_TTOSD)[which(colnames(vaers_TTOSD)==Product_var)]<-"var1"
@@ -74,7 +79,15 @@ TTO
 
 }
 
+# Below an example on how to use it
+###################################
+
+
+# 1. Import a local dataset containing product-event-case-TTO combinations for several products.
+
 #vaers<-read.csv(paste("/home/mint/R/history/2020_05_14/vaers_all.csv",sep=""),header=T)
+
+# 2. Run the TTOSD_function by using the column names of the local dataset.
 
 #vaers_TTOSD<-TTOSD_function(dataset = vaers[,
 #                                            c("VAERS_ID","VAX_NAME","SYMPTOM","NUMDAYS")],
@@ -83,5 +96,3 @@ TTO
 #                            Event_var="SYMPTOM",
 #                            TTO_var='NUMDAYS',
 #                            interval=30)
-
-#check<-sqldf('SELECT distinct VAX_NAME, count(distinct VAERS_ID) as N FROM vaers GROUP BY VAX_NAME ORDER BY N desc')
