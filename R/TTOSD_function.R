@@ -33,6 +33,8 @@ TTOSD_function<-function(dataset,
   vaers_TTOSD<-distinct(dataset[dataset[TTO_var]>=0 & dataset[TTO_var]<=interval,
                                 c(Product_var,Event_var,Case_var,TTO_var)])
 
+  vaers_TTOSD <- vaers_TTOSD[!is.na(vaers_TTOSD[,Product_var]),]
+
   # Rename the variables so that I can reuse the code - Should add check to make sure the new names do not exist
   colnames(vaers_TTOSD)[which(colnames(vaers_TTOSD)==Product_var)]<-"var1"
   colnames(vaers_TTOSD)[which(colnames(vaers_TTOSD)==Event_var)]<-"var2"
